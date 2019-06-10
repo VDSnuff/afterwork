@@ -4,10 +4,10 @@ using System.Text;
 
 namespace afterwork.model
 {
-    public class EventType
+    public enum EventType
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
+        Excursion,
+        sports,
+        other
     }
 }

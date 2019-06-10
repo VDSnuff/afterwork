@@ -4,10 +4,10 @@ using System.Text;
 
 namespace afterwork.model
 {
-   public class City
+    public class Group
     {
-        public int CityId { get; set; }
+        public int GroupId { get; set; }
         public string Name { get; set; }
-        public string Code { get; set; }
+        public IEnumerable<User> Participants { get; set; }
     }
 }

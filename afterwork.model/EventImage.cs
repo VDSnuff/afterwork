@@ -2,7 +2,7 @@
 {
     public class EventImage
     {
-        public int Id { get; set; }
+        public int EventImageId { get; set; }
         public string Path { get; set; }
     }
 }

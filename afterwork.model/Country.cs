@@ -4,9 +4,9 @@ using System.Text;
 
 namespace afterwork.model
 {
-    class Country
+   public class Country
     {
-        public int Id { get; set; }
+        public int CountryId { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
     }

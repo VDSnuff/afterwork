@@ -4,10 +4,12 @@ using System.Text;
 
 namespace afterwork.model
 {
-    class Event
+   public class Event
     {
-        public int Id { get; set; }
+        public int EventId { get; set; }
         public User Creator { get; set; }
+        public IList<EventAdministrator> EventAdministrator { get; set; }
+        public IList<EventPartisipant> EventPartisipant { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public EventImage EventImage { get; set; }
@@ -20,7 +22,7 @@ namespace afterwork.model
         public City City { get; set; }
         public bool IsPrivate { get; set; }
         public int ParticipantLimit { get; set; }
-        public decimal MinimalBudget { get; set; }
+        public double MinimalBudget { get; set; }
         public int Complexity { get; set; }
         public string Rating { get; set; }
     }
