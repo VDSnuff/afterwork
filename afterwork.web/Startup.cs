@@ -28,6 +28,8 @@ namespace afterwork.web
                 options.UseSqlServer(Configuration.GetConnectionString("AfterWorkDb"));
             });
 
+            services.AddScoped(typeof(IRepository<>), typeof(Repositor<>));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // In production, the Angular files will be served from this directory

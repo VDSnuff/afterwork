@@ -4,7 +4,7 @@ using System.Text;
 
 namespace afterwork.model
 {
-   public class Event
+    public class Event
     {
         public int EventId { get; set; }
         public User Creator { get; set; }
@@ -16,11 +16,13 @@ namespace afterwork.model
         public EventType EventType { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public IList<PropositionForEventDateTime> PropositionForEventDateTime { get; set; }
         public Location GatheringSpot { get; set; }
         public Location EventPlace { get; set; }
         public Country Country { get; set; }
         public City City { get; set; }
         public bool IsPrivate { get; set; }
+        public bool IsConfirmed { get; set; }
         public int ParticipantLimit { get; set; }
         public double MinimalBudget { get; set; }
         public int Complexity { get; set; }
