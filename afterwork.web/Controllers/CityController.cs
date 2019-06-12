@@ -1,8 +1,10 @@
 ﻿using afterwork.data;
 using afterwork.model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 
 namespace afterwork.web.Controllers
 {
@@ -10,27 +12,35 @@ namespace afterwork.web.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
+        //private readonly IRepository<City> _repository;
+        //private readonly ILogger<CityController> _logger;
 
-        private readonly IRepository<City> _repository;
-        public CityController(IRepository<City> repository)
-        {
-            _repository = repository;
-        }
+        //public CityController(IRepository<City> repository, ILogger<CityController> logger)
+        //{
+        //    _repository = repository;
+        //    _logger = logger;
+        //}
 
         // GET api/values
         [HttpGet]
-        public JsonResult<IEnumerable<City>> Get()
+        public ActionResult<IEnumerable<City>> Get()
         {
-            var response = _repository.GetAll();
-            return Json(response);
+            try
+            {
+         ///       return Ok(_repository.GetAll());
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError($"Failed to get Cities: {ex}");
+                return BadRequest("Failed to get Cities");
+            }
         }
 
-        //// GET api/values/5
+        // GET api/values/5
         //[HttpGet("{id}")]
         //public ActionResult<Event> Get(int id)
         //{
-        //    var eventObj = _repository.GetById(id);
-        //    return eventObj;
+        //    var response = _repository.GetById(id);
         //}
 
         // POST api/values

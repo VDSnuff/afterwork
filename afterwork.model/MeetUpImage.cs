@@ -1,8 +1,8 @@
 ﻿namespace afterwork.model
 {
-    public class EventImage
+    public class MeetUpImage
     {
-        public int EventImageId { get; set; }
+        public int MeetUpImageId { get; set; }
         public string Path { get; set; }
     }
 }

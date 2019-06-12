@@ -1,11 +1,11 @@
 ﻿namespace afterwork.model
 {
-    public class EventAdministrator
+    public class MeetUpPartisipant
     {
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public int EventId { get; set; }
-        public Event Event { get; set; }
+        public int MeetUpId { get; set; }
+        public MeetUp MeetUp { get; set; }
     }
 }

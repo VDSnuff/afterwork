@@ -10,7 +10,7 @@ namespace afterwork.model
         public string Email { get; set; }
         public string ContactNumber { get; set; }
 
-        public IList<EventAdministrator> EventAdministrator { get; set; }
-        public IList<EventPartisipant> EventPartisipant { get; set; }
+        public IList<MeetUpAdministrator> MeetUpAdministrator { get; set; }
+        public IList<MeetUpPartisipant> MeetUpPartisipant { get; set; }
     }
 }

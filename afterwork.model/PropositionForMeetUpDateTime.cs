@@ -4,13 +4,13 @@ using System.Text;
 
 namespace afterwork.model
 {
-    public class PropositionForEventDateTime
+    public class PropositionForMeetUpDateTime
     {
-        public int PropositionForEventDateTimeId { get; set; }
+        public int PropositionForMeetUpDateTimeId { get; set; }
         public User PropositionCreator { get; set; }
-        public IList<EventDateTimeVoter> EventDateTimeVoter { get; set; }
+        public IList<MeetUpDateTimeVoter> MeetUpDateTimeVoter { get; set; }
         public DateTime ProposedDateTime { get; set; }
         public int VoicesCount { get; set; }
-        public Event Event { get; set; }
+        public MeetUp MeetUp { get; set; }
     }
 }

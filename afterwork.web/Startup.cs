@@ -28,9 +28,12 @@ namespace afterwork.web
                 options.UseSqlServer(Configuration.GetConnectionString("AfterWorkDb"));
             });
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repositor<>));
+            services.AddScoped<IMeetUpRepository, MeetUpRepository>();
+            
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

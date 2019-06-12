@@ -1,6 +1,8 @@
 ﻿using afterwork.data;
 using afterwork.model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 
 
@@ -8,25 +10,36 @@ namespace afterwork.web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventController : ControllerBase
+    public class MeetUpController : ControllerBase
     {
 
-        private readonly IRepository<Event> _repository;
-        public EventController(IRepository<Event> repository)
+        private readonly IRepository<MeetUp> _repository;
+        private readonly ILogger<MeetUpController> _logger;
+
+        public MeetUpController(IRepository<MeetUp> repository, ILogger<MeetUpController> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<MeetUp>> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_repository.GetAll());
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to get Events: {ex}");
+                return BadRequest("Failed to get Events");
+            }
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Event> Get(int id)
+        public ActionResult<MeetUp> Get(int id)
         {
             var eventObj = _repository.GetById(id);
             return eventObj;

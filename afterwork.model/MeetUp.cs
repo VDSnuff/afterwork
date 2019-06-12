@@ -4,21 +4,21 @@ using System.Text;
 
 namespace afterwork.model
 {
-    public class Event
+    public class MeetUp
     {
-        public int EventId { get; set; }
+        public int MeetUpId { get; set; }
         public User Creator { get; set; }
-        public IList<EventAdministrator> EventAdministrator { get; set; }
-        public IList<EventPartisipant> EventPartisipant { get; set; }
+        public IList<MeetUpAdministrator> MeetUpAdministrator { get; set; }
+        public IList<MeetUpPartisipant> MeetUpPartisipant { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public EventImage EventImage { get; set; }
-        public EventType EventType { get; set; }
+        public MeetUpImage MeetUpImage { get; set; }
+        public MeetUpType MeetUpType { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public IList<PropositionForEventDateTime> PropositionForEventDateTime { get; set; }
+        public IList<PropositionForMeetUpDateTime> PropositionForMeetUpDateTime { get; set; }
         public Location GatheringSpot { get; set; }
-        public Location EventPlace { get; set; }
+        public Location MeetUpPlace { get; set; }
         public Country Country { get; set; }
         public City City { get; set; }
         public bool IsPrivate { get; set; }

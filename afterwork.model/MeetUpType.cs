@@ -4,7 +4,7 @@ using System.Text;
 
 namespace afterwork.model
 {
-    public enum EventType
+    public enum MeetUpType
     {
         Excursion,
         sports,
