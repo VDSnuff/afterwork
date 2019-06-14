@@ -9,8 +9,5 @@ namespace afterwork.model
         public string Name { get; set; }
         public string Email { get; set; }
         public string ContactNumber { get; set; }
-
-        public IList<MeetUpAdministrator> MeetUpAdministrator { get; set; }
-        public IList<MeetUpPartisipant> MeetUpPartisipant { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using afterwork.data;
 
 namespace afterwork.data.Migrations
 {
     [DbContext(typeof(AfterWorkDbContext))]
-    partial class AfterWorkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190613193451_EventsToMeetup")]
+    partial class EventsToMeetup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -277,7 +279,7 @@ namespace afterwork.data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("afterwork.model.User", "User")
-                        .WithMany()
+                        .WithMany("MeetUpAdministrator")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -302,7 +304,7 @@ namespace afterwork.data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("afterwork.model.User", "User")
-                        .WithMany()
+                        .WithMany("MeetUpPartisipant")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

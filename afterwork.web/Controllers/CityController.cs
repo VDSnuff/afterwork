@@ -22,19 +22,19 @@ namespace afterwork.web.Controllers
         //}
 
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<City>> Get()
-        {
-            try
-            {
-         ///       return Ok(_repository.GetAll());
-            }
-            catch(Exception ex)
-            {
-                _logger.LogError($"Failed to get Cities: {ex}");
-                return BadRequest("Failed to get Cities");
-            }
-        }
+        //[HttpGet]
+        //public ActionResult<IEnumerable<City>> Get()
+        //{
+        //    try
+        //    {
+        // ///       return Ok(_repository.GetAll());
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        //_logger.LogError($"Failed to get Cities: {ex}");
+        //        //return BadRequest("Failed to get Cities");
+        //    }
+        //}
 
         // GET api/values/5
         //[HttpGet("{id}")]

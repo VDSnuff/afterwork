@@ -13,10 +13,10 @@ namespace afterwork.web.Controllers
     public class MeetUpController : ControllerBase
     {
 
-        private readonly IRepository<MeetUp> _repository;
+        private readonly IMeetUpRepository _repository;
         private readonly ILogger<MeetUpController> _logger;
 
-        public MeetUpController(IRepository<MeetUp> repository, ILogger<MeetUpController> logger)
+        public MeetUpController(IMeetUpRepository repository, ILogger<MeetUpController> logger)
         {
             _repository = repository;
             _logger = logger;
@@ -32,8 +32,8 @@ namespace afterwork.web.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to get Events: {ex}");
-                return BadRequest("Failed to get Events");
+                _logger.LogError($"Failed to get MeetUps: {ex}");
+                return BadRequest("Failed to get MeetUps");
             }
         }
 

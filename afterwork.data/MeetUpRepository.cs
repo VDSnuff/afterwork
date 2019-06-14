@@ -46,8 +46,10 @@ namespace afterwork.data
 
         public IEnumerable<MeetUp> GetAll()
         {
-            var eventList = ctx.MeetUps.ToList(); // Or use Where...
-            return eventList;
+            return ctx.MeetUps.Include(u => u.Creator).Include(a => a.MeetUpAdministrator)
+                              .Include(p => p.MeetUpPartisipant).Include(i => i.MeetUpImage)
+                              .Include(p => p.PropositionForMeetUpDateTime).Include(g => g.GatheringSpot)
+                              .Include(l => l.MeetUpPlace).ToList();
         }
 
         public MeetUp Update(MeetUp updatedMeetUp)
